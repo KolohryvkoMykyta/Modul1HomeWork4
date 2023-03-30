@@ -5,20 +5,20 @@ while (true)
 {
     // Сreate an array and fill it with random numbers from 1 to 26
     Console.Clear();
-    var arrayLength = InputArraylength();
+    var arrayLength = GetInitArrayLenhth();
 
     if (arrayLength <= 0)
     {
         continue;
     }
 
-    var array = ArrayCreator(arrayLength);
+    var array = CreateArray(arrayLength);
     Console.WriteLine("\nArray of integers:");
     PrintIntArray(array);
 
     // Сreate two character arrays, the first one is filled with symbols with paired numbers from integer array, and the second one with unpaired
-    var evenCharArray = NubrersToChars(array, true);
-    var oddCharArray = NubrersToChars(array, false);
+    var evenCharArray = ConvertNumbersToChars(array, true);
+    var oddCharArray = ConvertNumbersToChars(array, false);
 
     // Сhange the letters a, e, i, d, h, j to uppercase and the rest to lowercase
     evenCharArray = ConvertCharCase(evenCharArray);
@@ -73,7 +73,7 @@ while (true)
     }
 }
 
-int InputArraylength()
+int GetInitArrayLenhth()
 {
     int result;
     Console.Write("Please enter the length of the array: ");
@@ -88,7 +88,7 @@ int InputArraylength()
     return result;
 }
 
-int[] ArrayCreator(int arrayLenght)
+int[] CreateArray(int arrayLenght)
 {
     var array = new int[arrayLenght];
     var random = new Random();
@@ -101,7 +101,7 @@ int[] ArrayCreator(int arrayLenght)
     return array;
 }
 
-char[] NubrersToChars(int[] array, bool useEvenNumbers)
+char[] ConvertNumbersToChars(int[] array, bool useEvenNumbers)
 {
     var counter = 0;
 
